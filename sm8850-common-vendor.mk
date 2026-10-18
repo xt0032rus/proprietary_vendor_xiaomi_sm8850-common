@@ -198,7 +198,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sm8850-common/proprietary/vendor/etc/android.hardware.security.onekeymint-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/android.hardware.security.onekeymint-service-qti.rc \
     vendor/xiaomi/sm8850-common/proprietary/vendor/etc/audio/sku_canoe/adsp_sleep_monitor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_canoe/adsp_sleep_monitor.conf \
     vendor/xiaomi/sm8850-common/proprietary/vendor/etc/audio/sku_canoe/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_canoe/audio_effects.conf \
-    vendor/xiaomi/sm8850-common/proprietary/vendor/etc/audio/sku_canoe/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_canoe/audio_effects.xml \
     vendor/xiaomi/sm8850-common/proprietary/vendor/etc/audio/sku_canoe/audio_effects_config_stub.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_canoe/audio_effects_config_stub.xml \
     vendor/xiaomi/sm8850-common/proprietary/vendor/etc/audio/sku_canoe/mixer_paths_canoe_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_canoe/mixer_paths_canoe_mtp.xml \
     vendor/xiaomi/sm8850-common/proprietary/vendor/etc/audio/sku_canoe/plugin_manager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_canoe/plugin_manager.xml \
