@@ -12,14 +12,24 @@
  */
 
 {
-    "service_infos":
+    "unsupported_chip_families":["CHIPINFO_FAMILY_MOLOKAI", "CHIPINFO_FAMILY_HAWI"],
+    "unsupported_chips":["CHIPINFO_ID_SGP_KAANAPALI"],
+    "default_configs":
     {
-        "infos":
+        "service_infos":
         {
-        },
-        "usecase_infos":
-        {
+            "infos":
+            {
+            },
+            "usecase_infos":
+            {
+            }
         }
+    },
+    "chip_family_configs":
+    {
+    },
+    "chip_configs":
+    {
     }
 }
-

@@ -119,7 +119,6 @@ NO APV
     <Include href="media_codecs_google_telephony.xml" />
     <Include href="media_codecs_c2_audio.xml" />
     <Include href="media_codecs_mi_c2_audio.xml" />
-    <Include href="media_codecs_dolby_audio.xml" /><!-- DOLBY ADD -->
     <Settings>
         <Setting name="max-video-encoder-input-buffers" value="11" />
     </Settings>

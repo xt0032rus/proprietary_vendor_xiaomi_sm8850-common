@@ -12,32 +12,42 @@
  */
 
 {
-    "service_infos":
+    "unsupported_chip_families":["CHIPINFO_FAMILY_MOLOKAI", "CHIPINFO_FAMILY_HAWI"],
+    "unsupported_chips":["CHIPINFO_ID_SGP_KAANAPALI"],
+    "default_configs":
     {
-        "infos":
+        "service_infos":
         {
-        },
-        "usecase_infos":
-        {
-            "qti.generic_qnn":
+            "infos":
             {
-                "extension_info":
+            },
+            "usecase_infos":
+            {
+                "qti.generic_qnn":
                 {
-                    "library_name": "libnspextensiongenericqnnservice.so",
-                    "usecase_identifier": "generic_qnn"
-                },
-                "input_capabilities":
-                {
-                },
-                "output_capabilities":
-                {
-                },
-                "other_capabilities":
-                {
-                    "vulkan.qnn_version": "qaisw-v2.36.0.250627101419_123260"
+                    "extension_info":
+                    {
+                        "library_name": "libnspextensiongenericqnnservice.so",
+                        "usecase_identifier": "generic_qnn"
+                    },
+                    "input_capabilities":
+                    {
+                    },
+                    "output_capabilities":
+                    {
+                    },
+                    "other_capabilities":
+                    {
+                        "vulkan.qnn_version": "qaisw-v2.36.0.250627101419_123260"
+                    }
                 }
             }
         }
+    },
+    "chip_family_configs":
+    {
+    },
+    "chip_configs":
+    {
     }
 }
-

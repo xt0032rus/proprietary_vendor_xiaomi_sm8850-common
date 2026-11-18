@@ -330,16 +330,16 @@
 
     <EncoderProfile quality="timelapsevga" fileFormat="mp4" duration="30">
       <Video codec="h264"
-             bitRate="1536000"
-             width="640"
-             height="480"
+             bitRate="20000000"
+             width="1080"
+             height="1920"
              frameRate="30" />
 
       <!-- audio setting is ignored -->
-      <Audio codec="amrnb"
-             bitRate="12200"
-             sampleRate="8000"
-             channels="1" />
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
     </EncoderProfile>
 
     <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
@@ -622,16 +622,16 @@
 
     <EncoderProfile quality="timelapsevga" fileFormat="mp4" duration="30">
       <Video codec="h264"
-             bitRate="1536000"
-             width="640"
-             height="480"
+             bitRate="20000000"
+             width="1080"
+             height="1920"
              frameRate="30" />
 
       <!-- audio setting is ignored -->
-      <Audio codec="amrnb"
-             bitRate="12200"
-             sampleRate="8000"
-             channels="1" />
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
     </EncoderProfile>
 
     <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
@@ -915,16 +915,16 @@
 
     <EncoderProfile quality="timelapsevga" fileFormat="mp4" duration="30">
       <Video codec="h264"
-             bitRate="1536000"
-             width="640"
-             height="480"
+             bitRate="20000000"
+             width="1080"
+             height="1920"
              frameRate="30" />
 
       <!-- audio setting is ignored -->
-      <Audio codec="amrnb"
-             bitRate="12200"
-             sampleRate="8000"
-             channels="1" />
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
     </EncoderProfile>
 
     <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
@@ -1301,16 +1301,16 @@
 
     <EncoderProfile quality="timelapsevga" fileFormat="mp4" duration="30">
       <Video codec="h264"
-             bitRate="1536000"
-             width="640"
-             height="480"
+             bitRate="20000000"
+             width="1080"
+             height="1920"
              frameRate="30" />
 
       <!-- audio setting is ignored -->
-      <Audio codec="amrnb"
-             bitRate="12200"
-             sampleRate="8000"
-             channels="1" />
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
     </EncoderProfile>
 
     <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
@@ -1686,16 +1686,16 @@
 
     <EncoderProfile quality="timelapsevga" fileFormat="mp4" duration="30">
       <Video codec="h264"
-             bitRate="1536000"
-             width="640"
-             height="480"
+             bitRate="20000000"
+             width="1080"
+             height="1920"
              frameRate="30" />
 
       <!-- audio setting is ignored -->
-      <Audio codec="amrnb"
-             bitRate="12200"
-             sampleRate="8000"
-             channels="1" />
+      <Audio codec="aac"
+             bitRate="156000"
+             sampleRate="48000"
+             channels="2" />
     </EncoderProfile>
 
     <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
@@ -1782,7 +1782,7 @@
          or query the capabilities of the codec at all if it is disabled
     -->
     <VideoEncoderCap name="h264" enabled="true"
-        minBitRate="64000" maxBitRate="105000000"
+        minBitRate="64000" maxBitRate="220000000"
         minFrameWidth="176" maxFrameWidth="7680"
         minFrameHeight="144" maxFrameHeight="4320"
         minFrameRate="15" maxFrameRate="30"
@@ -1790,7 +1790,7 @@
         maxHFRMode="120"  />
 
     <VideoEncoderCap name="hevc" enabled="true"
-        minBitRate="64000" maxBitRate="73500000"
+        minBitRate="64000" maxBitRate="180000000"
         minFrameWidth="176" maxFrameWidth="7680"
         minFrameHeight="144" maxFrameHeight="4320"
         minFrameRate="15" maxFrameRate="30"

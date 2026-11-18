@@ -65,8 +65,3 @@ on early-boot
     start vendor.sensors
     chown system system /sys/kernel/boot_adsp/ssr
 
-on post-fs-data && property:ro.build.type=userdebug
-    #sensors log dir
-    mkdir /data/vendor/sensors 0777 system system
-    mkdir /data/vendor/sensors/scripts 0777 system system
-    mkdir /data/vendor/sensors/diag_cfg 0770 system system

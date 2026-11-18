@@ -76,3 +76,5 @@ pipe2: 1
 gettid: 1
 renameat2: 1
 dup: 1
+clock_gettime: 1
+gettimeofday: 1

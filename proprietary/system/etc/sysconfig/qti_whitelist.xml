@@ -49,10 +49,9 @@
     <hidden-api-whitelisted-app package="com.qualcomm.atfwd" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.confdialer" />
     <hidden-api-whitelisted-app package="org.codeaurora.dialer" />
-    <hidden-api-whitelisted-app package="com.qti.qualcomm.datastatusnotification" />
+    <hidden-api-whitelisted-app package="com.qti.phone" />
     <hidden-api-whitelisted-app package="com.qti.qualcomm.deviceinfo" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.modemtestmode" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.telephonyservice" />
     <hidden-api-whitelisted-app package="org.codeaurora.ims" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.ims" />
     <hidden-api-whitelisted-app package="com.qti.xdivert" />
@@ -96,5 +95,7 @@
     <hidden-api-whitelisted-app package="com.qualcomm.qti.server.wigigapp" />
     <!-- These are location components that need to freely run in the background -->
     <allow-in-power-save package="com.qualcomm.location" />
+    <allow-in-power-save package="vendor.qti.frameworks.utils" />
+    <allow-in-power-save package="vendor.qti.framework.utils" />
     <hidden-api-whitelisted-app package="com.qti.service.colorservice" />
 </config>

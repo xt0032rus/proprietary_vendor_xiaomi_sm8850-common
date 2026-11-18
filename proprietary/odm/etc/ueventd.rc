@@ -66,7 +66,11 @@ external_firmware_handler /devices/platform/soc/soc:gh-secure-vm-loader@1/firmwa
 external_firmware_handler /devices/platform/soc/soc:gh-secure-vm-loader@1/firmware/oemvm.b05 system "/vendor/bin/vmmgr -r"
 
 #launch boost
-/dev/iorap_dev  0660  system  system
+/dev/iorap_dev  0666  system  system
 
 # hang_task
 /dev/Monitor_Hang	0660	system	system
+
+# xiaomi ntag
+/dev/fm-ntag              0660   nfc        nfc
+/dev/nxp-ntag             0660   nfc        nfc

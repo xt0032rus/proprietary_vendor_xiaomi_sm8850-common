@@ -14,6 +14,9 @@ on post-fs-data
     chmod 2770 /dev/socket/qcc_trd
     mkdir /mnt/vendor/persist/qcc 0770 system system
 
+on property:vendor.qti.izat.xtra_daemon_native_download=true
+    stop vendor.qcc-vendor
+
 service vendor.qcc-vendor /system/vendor/bin/qcc-vendor
     class late_start
     user system

@@ -30,6 +30,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 
+if [ -f /sys/devices/soc0/soc_id ]; then
+	platformid=`cat /sys/devices/soc0/soc_id`
+fi
 rev=`cat /sys/devices/soc0/revision`
 
 # Configure RT parameters:
@@ -44,7 +47,18 @@ sched_rt_period_ms=`expr $sched_rt_runtime_ms + 100`
 sched_rt_period_us=`expr $sched_rt_period_ms \* 1000`
 echo $sched_rt_period_us > /proc/sys/kernel/sched_rt_period_us
 echo $sched_rt_runtime_us > /proc/sys/kernel/sched_rt_runtime_us
-
+#Configure cgroup parameters:
+project=`getprop ro.product.device`
+case "$project" in
+    "popsicle"|"pudding")
+    echo 4196 > /dev/cpuctl/foreground/cpu.shares
+    echo 768 > /dev/cpuctl/background/cpu.shares
+    ;;
+    "nezha")
+    echo 4096 > /dev/cpuctl/foreground/cpu.shares
+    echo 512 > /dev/cpuctl/background/cpu.shares
+    ;;
+esac
 if [ -d /proc/sys/walt ]; then
 	# configure maximum frequency when CPUs are partially halted
 	echo 2147483647 > /proc/sys/walt/sched_max_freq_partial_halt
@@ -153,11 +167,12 @@ if [ -d /proc/sys/walt ]; then
 
         echo 3000 > /sys/module/perf_helper/sched_assi/sched_long_runnable
         echo 6000 > /sys/module/perf_helper/sched_assi/sched_long_running
+        echo 4 > /sys/module/perf_helper/sched_assi/sched_keytask_runnable_home_threshold
+	echo 8 > /sys/module/perf_helper/sched_assi/sched_keytask_runnable_camera_threshold
 	echo 16000 > /sys/module/perf_helper/sched_assi/softirq_debug_us
 	echo 2000000 2000000 > /sys/module/perf_helper/sched_assi/fuse_boost_floor_freq
 	echo 1 > /sys/module/perf_helper/sched_assi/io_sched_enabled
 #END Performance_BoostFramework
-
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
 
@@ -176,37 +191,47 @@ if [ -d /proc/sys/walt ]; then
 #END Game_TurboSched
 
 	echo 2611200 90 > /sys/devices/system/cpu/cpufreq/policy0/walt/zone_max_util_pct
-
-	if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
-		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
+	
+	if [ $platformid == "722" ] || [ $platformid == "723" ]; then # Alana settings
+		echo 720000 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 		echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
 		echo 1286400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
-		echo 2438400 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
-		echo 8500000 8500000 8500000 8500000 8500000 8500000 8500000 8500000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
-		echo 0 0 0 0 0 0 0 0 > /proc/sys/walt/sched_util_busy_hyst_cpu_util
+		echo 2438400 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq	
 	else
-		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
-		echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
-		echo 1286400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
-		echo 2438400 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
+		if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
+			echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
+			echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
+			echo 1286400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+			echo 2438400 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
+			echo 8500000 8500000 8500000 8500000 8500000 8500000 8500000 8500000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
+			echo 0 0 0 0 0 0 0 0 > /proc/sys/walt/sched_util_busy_hyst_cpu_util
+		else
+			echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
+			echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/walt/rtg_boost_freq
+			echo 1286400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+			echo 2438400 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
+		fi
 	fi
-
-	echo 0 > /proc/sys/kernel/watchdog
-
 else
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
 	echo 1 > /proc/sys/kernel/sched_pelt_multiplier
 fi
 
-if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
-	echo 614400 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-	echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
-	echo "0:614400 6:864000" > /data/vendor/perfd/default_scaling_min_freq
+if [ $platformid == "722" ] || [ $platformid == "723" ]; then # Alana settings
+		echo 720000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+		echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+		echo "0:720000 6:864000" > /data/vendor/perfd/default_scaling_min_freq
 else
-	echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-	echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
-	echo "0:787200 6:864000" > /data/vendor/perfd/default_scaling_min_freq
+	if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
+		echo 614400 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+		echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+		echo "0:614400 6:864000" > /data/vendor/perfd/default_scaling_min_freq
+	else
+		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+		echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+		echo "0:787200 6:864000" > /data/vendor/perfd/default_scaling_min_freq
+	fi
 fi
 
 # Reset the RT boost, which is 1024 (max) by default.
@@ -239,6 +264,7 @@ do
 	echo 250 > $llccbw/up_scale
 	echo 1600 > $llccbw/idle_mbps
 	echo 806000 > $llccbw/max_freq
+	echo 25000 > $llccbw/max_freq_max_mbps
 	echo 70 > $llccbw/ab_scale
 	echo 40 > $llccbw/window_ms
 done
@@ -248,6 +274,7 @@ do
 	echo 120 > $llccbw/io_percent
 	echo 180 > $llccbw/low_power_io_percent
 	echo "1017600 1017600" > $llccbw/max_low_power_cluster_freqs
+	echo 40000 > $llccbw/max_freq_max_mbps
 	echo 1350000 > $llccbw/sched_boost_freq
 	echo 1 > $llccbw/use_sched_boost
 done
@@ -315,5 +342,11 @@ case "$console_config" in
 		echo "Enable console config to $console_config"
 	;;
 esac
+
+if [ $platformid == "722" ] || [ $platformid == "723" ]; then # Alana settings
+	echo 729600 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+	echo 864000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq
+	echo "0:729600 6:864000" > /data/vendor/perfd/default_scaling_min_freq
+fi
 
 setprop vendor.post_boot.parsed 1

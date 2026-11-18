@@ -54,3 +54,6 @@ on property:vendor.netflix.bsp_rev=*
 
 on property:vendor.mm.target.enable.qcom_parser=*
     setprop vendor.mm.enable.qcom_parser ${vendor.mm.target.enable.qcom_parser}
+
+on property:sys.boot_completed=1
+    write /sys/kernel/va-minidump/msm_vidc/enable 1

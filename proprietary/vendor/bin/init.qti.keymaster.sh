@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 #=============================================================================
-# Copyright (c) 2020, 2022 Qualcomm Technologies, Inc.
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #=============================================================================
@@ -17,9 +17,10 @@ setprop vendor.gatekeeper.disable_spu true
 #elif [ "$soc_id" -eq 457 ] || [ "$soc_id" -eq 482 ] || [ "$soc_id" -eq 519 ] || [ "$soc_id" -eq 536 ] || [ "$soc_id" -eq 600 ] || [ "$soc_id" -eq 601 ]; then
 #    enable vendor.keymaster-sb-4-0
 #    start vendor.keymaster-sb-4-0
-##soc_ids SM8850: 660, 661
-#elif [ "$soc_id" -eq 660 ] || [ "$soc_id" -eq 661 ]; then
-#    # Set vendor.gatekeeper.is_security_level_spu according to /vendor/build.prop
+##soc_ids SM8850: 660, 661, SM8847: 722, 723
+#elif [ "$soc_id" -eq 660 ] || [ "$soc_id" -eq 661 ] || [ "$soc_id" -eq 722 ] || [ "$soc_id" -eq 723 ]; then
+#    # vendor.gatekeeper.is_security_level_spu will be set according to /vendor/build.prop
+#    : # This is an explicit no-operation command (NOP)
 #else
 #    setprop vendor.gatekeeper.is_security_level_spu 0
 #fi

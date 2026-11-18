@@ -87,6 +87,18 @@ function set_density_by_fb() {
             "nezha")
             setprop vendor.display.lcd_density 480
             ;;
+            "pecan")
+            setprop vendor.display.lcd_density 520
+            ;;
+            "byron")
+            setprop vendor.display.lcd_density 480
+            ;;
+            "athens")
+            setprop vendor.display.lcd_density 480
+            ;;
+            "shuntian")
+            setprop vendor.display.lcd_density 400
+            ;;
             *)
             setprop vendor.display.lcd_density 440
             ;;
@@ -119,6 +131,18 @@ function set_density_by_fb() {
             ;;
             "nezha")
             setprop vendor.display.lcd_density 480
+            ;;
+            "pecan")
+            setprop vendor.display.lcd_density 520
+            ;;
+            "byron")
+            setprop vendor.display.lcd_density 480
+            ;;
+            "athens")
+            setprop vendor.display.lcd_density 480
+            ;;
+            "shuntian")
+            setprop vendor.display.lcd_density 400
             ;;
         esac
     fi

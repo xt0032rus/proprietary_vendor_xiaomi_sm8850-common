@@ -12,9 +12,16 @@
             "enc_csc_custom_matrix": false,
             // encoder csc enable
             "enc_csc_enable": false,
+            // HDR10Plus HW stats gen feature
+            // false: Feature is disabled by default.
+            // true:  HDR10+ HW Stats is enabled.
+            "enc_enable_hdr10plus_stats_gen": false,
             // true: do not override transfer value to 170M if bitstream contains unspecified transfer
             // false: override transfer value to 170M if bitstream contains unspecified transfer
-            "dec_transfer_value_override" : false
+            "dec_transfer_value_override" : false,
+            //Reduce the startup latency of the first session
+            //by starting vpp service at boot
+            "vpp_lazy_init": true
         },
         "Presets": {
             // control to force enable linear color format for encoder
@@ -98,7 +105,16 @@
             // Default value of this wait time is 150ms, even if this value is not set in this file.
             // Lower wait time might increase the thread activity in some corner cases.
             // Higher wait time might affect stop latency in some cases.
-            "dec_bufferpool_fence_wait_time_ms": 150
+            "dec_bufferpool_fence_wait_time_ms": 150,
+
+            "vpp_max_retry_vpp_start_timeout": 2500,
+            // Mode for decoder metadata generation
+            // it is bitmask.
+            //  0x0: disable
+            //  0x1: enable only for 8bit content
+            //  0x2: enable for 8/10bit SDR and HLG
+            //  0x3: enable for all 8/10 bit content(including HDR10/+)
+            "dec_dolby_metadata_gen" : 0
         },
 
         "ProsightModeBitrateTable": [
@@ -108,21 +124,33 @@
             [8640, 32420, 245]
          ],
 
-        // "DolbyVision": {
-        //     "profiles": [5, 8, 9],
-        //     "max_main_tier_level": 9,
-        //     "max_high_tier_level": 9
-        // },
+        "DolbyVision": {
+            "profiles": [5, 8],
+            "max_main_tier_level": 12,
+            "max_high_tier_level": 12
+        },
 
         // list of codec plugin libraries to be loaded into codec registry
         "QC2CodecPlugins": [
-            "libqcodec2_imgtxrfilter.so"
+            "libqcodec2_psfilter.so",
+            "libqc2vppfilter.so",
+            "libqcodec2_imgtxrfilter.so",
+            "libqcodec2_dolbydecoderfilter.so",
+            "libqcodec2_dolbyenhancementfilter.so",
+            "libqcodec2_srfilter.so",
+            "libqcodec2_rffilter.so"
+            //"libqcodec2_dolbymdgenfilter.so"
         ],
 
         "QC2PreProcessingFilters": [
             "libqcodec2_imgtxrfilter.so",
             "libqcodec2_cvpfilter.so",
-            "libqcodec2_streaminteg_filter.so"
+            "libqcodec2_streaminteg_filter.so",
+            "libqcodec2_dolbyencoderfilter.so"
+        ],
+
+        "QC2EncPostProcessingFilters": [
+            "libqcodec2_encpostprocfilter.so"
         ],
 
         //
@@ -132,6 +160,9 @@
         // "c2.qti.dv.encoder"
         //
         "OptionalCodecs": [
+            "c2.qti.dv.decoder",
+            "c2.qti.dv.decoder.secure",
+            "c2.qti.dv.encoder"
         ]
     }
 }

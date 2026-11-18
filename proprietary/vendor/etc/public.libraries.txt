@@ -12,5 +12,8 @@ libmiocr.so
 libmiphone_capture_bokeh.so
 libanc_single_bokeh.so
 libmiphone_dualcam_depth_aideploy.so
-libSEGModel.so
 libmi266.so
+libmpbase.so
+libarc.ion.so
+libarcsoft_dualcam_bokeh_image.so
+libarcsoft_qnnhtp.so

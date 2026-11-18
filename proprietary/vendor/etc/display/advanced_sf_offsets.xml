@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!--
-Copyright (c) 2020-2024 Qualcomm Technologies, Inc.
-All Rights Reserved.
+Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+All rights reserved.
 Confidential and Proprietary - Qualcomm Technologies, Inc.
 -->
 <AdvancedSfOffsetSetting>
@@ -30,8 +30,8 @@ Confidential and Proprietary - Qualcomm Technologies, Inc.
         </Device>
         <Device version="5">
             <FpsOffsetMap fps="60" SfDurationPercentage="94" AppDuration="16666666"/>
-            <FpsOffsetMap fps="90" SfDurationPercentage="136"/>
-            <FpsOffsetMap fps="120" SfDurationPercentage="148"/>
+            <FpsOffsetMap fps="90" SfDurationPercentage="136" AppDuration="13666666"/>
+            <FpsOffsetMap fps="120" SfDurationPercentage="148" AppDuration="11666666"/>
             <FpsOffsetMap fps="144" SfDurationPercentage="149" AppDuration="10333333"/>
             <FpsOffsetMap fps="180" SfDurationPercentage="149" AppDuration="10333333"/>
             <FpsOffsetMap fps="240" SfDurationPercentage="149" AppDuration="10333333"/>

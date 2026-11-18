@@ -4,6 +4,10 @@
 -->
 <manifest version="9.0" type="device">
     <hal format="aidl">
+        <name>com.fingerprints.fpc.extension</name>
+        <fqname>IFpcExtension/default</fqname>
+    </hal>
+    <hal format="aidl">
         <name>vendor.qti.hardware.fingerprint</name>
         <fqname>IQfpExtendedFingerprint/default</fqname>
     </hal>

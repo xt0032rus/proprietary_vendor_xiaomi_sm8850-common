@@ -98,3 +98,6 @@ process_vm_readv: 1
 setsockopt: 1
 recvfrom: 1
 
+#Needed for itrace perfetto output
+geteuid: 1
+bind: 1

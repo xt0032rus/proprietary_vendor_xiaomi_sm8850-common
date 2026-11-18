@@ -123,7 +123,6 @@
     <Include href="media_codecs_google_telephony.xml" />
     <Include href="media_codecs_c2_audio.xml" />
     <Include href="media_codecs_mi_c2_audio.xml" />
-    <Include href="media_codecs_dolby_audio.xml" /><!-- DOLBY ADD -->
     <Settings>
         <Setting name="max-video-encoder-input-buffers" value="11" />
     </Settings>
@@ -497,7 +496,7 @@
             <Limit name="frame-rate" range="1-480" />
             <Limit name="complexity" range="0-100"  default="100" />
             <Limit name="concurrent-instances" max="16" />
-            <Feature name="bitrate-modes" value="VBR" />
+            <Feature name="bitrate-modes" value="VBR,CQ" />
             <Feature name="encoding-statistics" />
             <Limit name="performance-point-1920x1080" value="480" />
             <Limit name="performance-point-1920x1080" value="240" />

@@ -6,7 +6,14 @@ service vendor.qsap.mpamsvc /vendor/bin/qsap_mpamsvc
     class main
     user system
     group system
+    disabled
 
 on post-fs-data
     #Create dir for MPAM
     mkdir /data/vendor/mpamsvc 0750 system system
+
+on property:sys.boot_completed=1 && property:vendor.qsap.mpam.enabled=true
+    start vendor.qsap.mpamsvc
+
+on property:vendor.qsap.mpam.enabled=false
+    stop vendor.qsap.mpamsvc

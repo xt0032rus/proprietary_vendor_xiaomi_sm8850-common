@@ -1,6 +1,6 @@
 <!--
     Input:
-        vendor/xiaomi/proprietary/modem/hal_cust/aidl/radiocdc/../../config/common/aidl/vendor.xiaomi.hardware.radio.cdc.xml
+        vendor/xiaomi/proprietary/modem/hal_cmn/aidl/cust/radiocdc/../../config/manifest/vendor.xiaomi.hardware.radio.cdc.xml
 -->
 <manifest version="9.0" type="device">
     <hal format="aidl">

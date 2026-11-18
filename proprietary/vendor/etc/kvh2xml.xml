@@ -267,6 +267,7 @@
       <VALUE val="0xad001600" name="Recording_No_NS" enumValue="DEVICEPP_TX_RECORDING_NO_NS" description="For some recording devices, do not use NS"/>
       <VALUE val="0xad001700" name="Recording_FacCIT" enumValue="DEVICEPP_TX_RECORDING_FacCIT" description="Used in factory cit recording"/>
       <VALUE val="0xad001800" name="VOICE_SURROUND_PHONE_FOLD" enumValue="DEVICEPP_TX_VOICE_SURROUND_PHONE_FOLD"/>
+      <VALUE val="0xad001900" name="VOICE_RECOGNITION_CTS" enumValue="DEVICEPP_TX_VOICE_RECOGNITION_CTS"/>
     </KEY>
     <KEY name="MediaFmtID" id="0xae000000" enumValue="MEDIA_FMT_ID" enumName="Key_Values_MediaFmtID" description="MediaFmtID">
       <VALUE val="0xae000001" name="PCM" enumValue="MEDIA_FMT_PCM" description="PCM Media format"/>
@@ -929,6 +930,7 @@
     <TAG id="0xc000044" name="micall_module_switch" enumValue="TAG_MICALL_MODULE_SWITCH"/>
     <TAG id="0xc000045" name="phone_fold_misound_spk_mode" enumValue="TAG_PHONE_FOLD_MISOUND_SPK_MODE"/>
     <TAG id="0xc000046" name="volume_boost" enumValue="TAG_VOLUME_BOOST"/>
+    <TAG id="0xc000340" name="miec_speaker_direction" enumValue="MIEC_SPK_ROTATION"/>
     <TAG id="0xc000047" name="module_awdsp_fade" enumValue="MODULE_AWDSP_FADE"/>
     <TAG id="0xc000048" name="bve2_voice_volume" enumValue="TAG_BVE2_VOICE_VOLUME"/>
     <TAG id="0xc0000065" name="ti_spk_sp_switch" enumValue="TAG_TI_SPK_SP_SWITCH" description="Tag to be used to identify the MIID of TI speaker switch module"/>

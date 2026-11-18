@@ -4,6 +4,9 @@
 #
 
 service vendor.soter /vendor/bin/hw/vendor.qti.hardware.soter-service
-    class late_start
+    class hal
     user system
     group system drmrpc
+    disabled
+    oneshot
+    interface aidl vendor.qti.hardware.soter.ISoter/default
