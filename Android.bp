@@ -22314,6 +22314,7 @@ cc_prebuilt_library_shared {
                 "libdynamicelvss",
                 "android.frameworks.sensorservice-V1-ndk",
                 "android.hardware.sensors-V3-ndk",
+                "libframemaster",
                 "libframemasterintf",
                 "vendor.xiaomi.hardware.framemaster-V1-ndk",
                 "libdfintf",
@@ -23745,6 +23746,42 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libframemaster",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/odm/lib64/libframemaster.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libutils",
+                "libbinder",
+                "libbinder_ndk",
+                "libhardware",
+                "libstagefright_foundation",
+                "vendor.xiaomi.hardware.framemaster-V1-ndk",
+                "libdfintf",
+                "vendor.xiaomi.hardware.displayfeature_aidl-V2-ndk",
+                "vendor.xiaomi.hardware.displayfeature@1.0",
+                "libnvticcontroller",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    device_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libframemasterintf",
     owner: "xiaomi",
     strip: {
@@ -24159,6 +24196,41 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libnvticcontroller",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/odm/lib64/libnvticcontroller.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "libbinder",
+                "libbinder_ndk",
+                "libhardware",
+                "vendor.novatek.hardware.visdisplaysrv-V1-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    device_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libpaperMode",
     owner: "xiaomi",
     strip: {
@@ -24551,6 +24623,31 @@ cc_prebuilt_library_shared {
                 "android.hardware.sensors@2.1",
                 "libfmq",
                 "libpower",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    device_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.novatek.hardware.visdisplaysrv-V1-ndk",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/odm/lib64/vendor.novatek.hardware.visdisplaysrv-V1-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
                 "libc++",
                 "libc",
                 "libm",

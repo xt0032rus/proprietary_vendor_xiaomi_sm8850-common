@@ -1424,6 +1424,7 @@ PRODUCT_PACKAGES += \
     libdynamicelvss \
     libeyecare \
     libfpsmonitor \
+    libframemaster \
     libframemasterintf \
     libhdr10plus \
     libhistprocess \
@@ -1436,6 +1437,7 @@ PRODUCT_PACKAGES += \
     libmieventnodewatch \
     libmiface \
     libmlipay \
+    libnvticcontroller \
     libpaperMode \
     librhytheyecare \
     libsdr2hdr \
@@ -1448,6 +1450,7 @@ PRODUCT_PACKAGES += \
     libwindns \
     nfc_nci.st21nfc.st \
     sensors.touch.detect \
+    vendor.novatek.hardware.visdisplaysrv-V1-ndk \
     vendor.qti.gnss-V8-ndk \
     vendor.qti.gnss-service \
     vendor.qti.qvirt-V2-ndk \
